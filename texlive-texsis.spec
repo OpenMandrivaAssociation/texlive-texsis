@@ -19,8 +19,6 @@ Requires(pre):	texlive-tlpkg
 Requires(post):	texlive-kpathsea
 Requires:	texlive-tex
 Requires:	texlive-texsis.bin
-Conflicts:	texlive-texmf <= 20110705-3
-Conflicts:	texlive-doc <= 20110705-3
 
 %description
 TeXsis is a TeX macro package which provides useful features
@@ -40,20 +38,12 @@ constructing ruled tables. TeXsis was originally developed for
 physicists, but others may also find it useful. It is
 completely compatible with Plain TeX.
 
-%pre
-    %_texmf_mktexlsr_pre
-
 %post
-    %_texmf_mktexlsr_post
-
-%preun
-    if [ $1 -eq 0 ]; then
-	%_texmf_mktexlsr_pre
-    fi
+    %{_sbindir}/texlive.post
 
 %postun
     if [ $1 -eq 0 ]; then
-	%_texmf_mktexlsr_post
+	%{_sbindir}/texlive.post
     fi
 
 #-----------------------------------------------------------------------
@@ -141,7 +131,6 @@ completely compatible with Plain TeX.
 %doc %{_texmfdistdir}/doc/otherformats/texsis/base/texsis.1
 %doc %{_texmfdistdir}/doc/otherformats/texsis/base/texsis.el
 %doc %{_texmfdistdir}/doc/otherformats/texsis/base/texsis.lsm
-%doc %{_tlpkgobjdir}/*.tlpobj
 
 #-----------------------------------------------------------------------
 %prep
@@ -152,5 +141,3 @@ completely compatible with Plain TeX.
 %install
 mkdir -p %{buildroot}%{_datadir}
 cp -fpar texmf-dist %{buildroot}%{_datadir}
-mkdir -p %{buildroot}%{_tlpkgobjdir}
-cp -fpa tlpkg/tlpobj/*.tlpobj %{buildroot}%{_tlpkgobjdir}
