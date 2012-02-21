@@ -6,7 +6,7 @@
 # catalog-version 2.18
 Name:		texlive-texsis
 Version:	2.18
-Release:	2
+Release:	3
 Summary:	Plain TeX macros for Physicists
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/macros/texsis
@@ -17,6 +17,7 @@ BuildArch:	noarch
 BuildRequires:	texlive-tlpkg
 Requires(pre):	texlive-tlpkg
 Requires(post):	texlive-kpathsea
+Requires(post):	texlive-tetex
 Requires:	texlive-tex
 Requires:	texlive-texsis.bin
 
@@ -88,6 +89,7 @@ completely compatible with Plain TeX.
 %{_texmfdistdir}/tex/texsis/base/thesis.txs
 %{_texmfdistdir}/tex/texsis/base/twin.txs
 %{_texmfdistdir}/tex/texsis/config/texsis.ini
+%_texmf_fmtutil_d/texsis
 %doc %{_texmfdistdir}/doc/otherformats/texsis/base/COPYING
 %doc %{_texmfdistdir}/doc/otherformats/texsis/base/Example.tex
 %doc %{_texmfdistdir}/doc/otherformats/texsis/base/Fonts.tex
@@ -141,3 +143,9 @@ completely compatible with Plain TeX.
 %install
 mkdir -p %{buildroot}%{_datadir}
 cp -fpar texmf-dist %{buildroot}%{_datadir}
+mkdir -p %{buildroot}%{_texmf_fmtutil_d}
+cat > %{buildroot}%{_texmf_fmtutil_d}/texsis <<EOF
+#
+# from texsis:
+texsis pdftex - -translate-file=cp227.tcx texsis.ini
+EOF
