@@ -149,3 +149,20 @@ cat > %{buildroot}%{_texmf_fmtutil_d}/texsis <<EOF
 # from texsis:
 texsis pdftex - -translate-file=cp227.tcx texsis.ini
 EOF
+
+
+%changelog
+* Tue Feb 21 2012 Paulo Andrade <pcpa@mandriva.com.br> 2.18-3
++ Revision: 778473
+- Rebuild after tlpobj2spec.pl bug correction.
+
+* Wed Jan 04 2012 Paulo Andrade <pcpa@mandriva.com.br> 2.18-2
++ Revision: 756749
+- Rebuild to reduce used resources
+
+* Sat Nov 05 2011 Paulo Andrade <pcpa@mandriva.com.br> 2.18-1
++ Revision: 719714
+- texlive-texsis
+- texlive-texsis
+- texlive-texsis
+
