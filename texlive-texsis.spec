@@ -1,12 +1,12 @@
-# revision 22650
+# revision 31958
 # category Package
 # catalog-ctan /macros/texsis
-# catalog-date 2006-12-11 00:37:24 +0100
+# catalog-date 2012-06-05 22:22:59 +0200
 # catalog-license lppl
 # catalog-version 2.18
 Name:		texlive-texsis
 Version:	2.18
-Release:	3
+Release:	4
 Summary:	Plain TeX macros for Physicists
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/macros/texsis
@@ -90,6 +90,8 @@ completely compatible with Plain TeX.
 %{_texmfdistdir}/tex/texsis/base/twin.txs
 %{_texmfdistdir}/tex/texsis/config/texsis.ini
 %_texmf_fmtutil_d/texsis
+%doc %{_mandir}/man1/texsis.1*
+%doc %{_texmfdistdir}/doc/man/man1/texsis.man1.pdf
 %doc %{_texmfdistdir}/doc/otherformats/texsis/base/COPYING
 %doc %{_texmfdistdir}/doc/otherformats/texsis/base/Example.tex
 %doc %{_texmfdistdir}/doc/otherformats/texsis/base/Fonts.tex
@@ -130,7 +132,6 @@ completely compatible with Plain TeX.
 %doc %{_texmfdistdir}/doc/otherformats/texsis/base/letr
 %doc %{_texmfdistdir}/doc/otherformats/texsis/base/penguin.eps
 %doc %{_texmfdistdir}/doc/otherformats/texsis/base/penguin2.eps
-%doc %{_texmfdistdir}/doc/otherformats/texsis/base/texsis.1
 %doc %{_texmfdistdir}/doc/otherformats/texsis/base/texsis.el
 %doc %{_texmfdistdir}/doc/otherformats/texsis/base/texsis.lsm
 
@@ -143,26 +144,11 @@ completely compatible with Plain TeX.
 %install
 mkdir -p %{buildroot}%{_datadir}
 cp -fpar texmf-dist %{buildroot}%{_datadir}
+mkdir -p %{buildroot}%{_mandir}/man1
+mv %{buildroot}%{_texmfdistdir}/doc/man/man1/*.1 %{buildroot}%{_mandir}/man1
 mkdir -p %{buildroot}%{_texmf_fmtutil_d}
 cat > %{buildroot}%{_texmf_fmtutil_d}/texsis <<EOF
 #
 # from texsis:
 texsis pdftex - -translate-file=cp227.tcx texsis.ini
 EOF
-
-
-%changelog
-* Tue Feb 21 2012 Paulo Andrade <pcpa@mandriva.com.br> 2.18-3
-+ Revision: 778473
-- Rebuild after tlpobj2spec.pl bug correction.
-
-* Wed Jan 04 2012 Paulo Andrade <pcpa@mandriva.com.br> 2.18-2
-+ Revision: 756749
-- Rebuild to reduce used resources
-
-* Sat Nov 05 2011 Paulo Andrade <pcpa@mandriva.com.br> 2.18-1
-+ Revision: 719714
-- texlive-texsis
-- texlive-texsis
-- texlive-texsis
-
