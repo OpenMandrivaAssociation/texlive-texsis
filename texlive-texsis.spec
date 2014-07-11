@@ -6,7 +6,7 @@
 # catalog-version 2.18
 Name:		texlive-texsis
 Version:	2.18
-Release:	9
+Release:	10
 Summary:	Plain TeX macros for Physicists
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/macros/texsis
