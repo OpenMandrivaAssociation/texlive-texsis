@@ -1,18 +1,12 @@
-# revision 31958
-# category Package
-# catalog-ctan /macros/texsis
-# catalog-date 2012-06-05 22:22:59 +0200
-# catalog-license lppl
-# catalog-version 2.18
 Name:		texlive-texsis
-Version:	2.18
-Release:	14
+Version:	45678
+Release:	1
 Summary:	Plain TeX macros for Physicists
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/macros/texsis
 License:	LPPL
-Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/texsis.tar.xz
-Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/texsis.doc.tar.xz
+Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/texsis.r%{version}.tar.xz
+Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/texsis.doc.r%{version}.tar.xz
 BuildArch:	noarch
 BuildRequires:	texlive-tlpkg
 Requires(pre):	texlive-tlpkg
@@ -40,12 +34,12 @@ physicists, but others may also find it useful. It is
 completely compatible with Plain TeX.
 
 %post
-    %{_sbindir}/texlive.post
+%{_sbindir}/texlive.post
 
 %postun
-    if [ $1 -eq 0 ]; then
+if [ $1 -eq 0 ]; then
 	%{_sbindir}/texlive.post
-    fi
+fi
 
 #-----------------------------------------------------------------------
 %files
@@ -137,7 +131,7 @@ completely compatible with Plain TeX.
 
 #-----------------------------------------------------------------------
 %prep
-%setup -c -a0 -a1
+%autosetup -p1 -c -a1
 
 %build
 
