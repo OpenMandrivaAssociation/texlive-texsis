@@ -1,6 +1,6 @@
 Name:		texlive-texsis
 Version:	45678
-Release:	1
+Release:	2
 Summary:	Plain TeX macros for Physicists
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/macros/texsis
