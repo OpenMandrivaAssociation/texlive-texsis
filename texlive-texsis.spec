@@ -1,5 +1,5 @@
 Name:		texlive-texsis
-Version:	67930
+Version:	69742
 Release:	1
 Summary:	Plain TeX macros for Physicists
 Group:		Publishing
