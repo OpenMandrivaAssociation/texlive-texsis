@@ -3,7 +3,7 @@ Version:	69742
 Release:	1
 Summary:	Plain TeX macros for Physicists
 Group:		Publishing
-URL:		http://www.ctan.org/tex-archive/macros/texsis
+URL:		https://www.ctan.org/tex-archive/macros/texsis
 License:	LPPL
 Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/texsis.r%{version}.tar.xz
 Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/texsis.doc.r%{version}.tar.xz
