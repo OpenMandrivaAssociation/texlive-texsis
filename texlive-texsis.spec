@@ -1,5 +1,6 @@
 %global tl_name texsis
 %global tl_revision 79618
+%global tl_bin_links texsis:pdftex
 
 Name:		texlive-%{tl_name}
 Epoch:		1
@@ -21,6 +22,8 @@ Requires:	texlive(plain)
 Requires:	texlive(tex)
 Requires:	texlive(texsis.bin)
 Provides:	texlive(%{tl_name}) = %{tl_revision}
+Provides:	texlive(%{tl_name}.bin) = %{tl_revision}
+Provides:	texlive-%{tl_name}.bin = %{EVRD}
 
 %description
 TeXsis is a TeX macro package which provides useful features for
